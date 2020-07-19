@@ -1,0 +1,159 @@
+Encapsulamento
+Os 3 pilares de Programação Orientada a Objeto.
+
+                    E-H-P
+
+Encapsulamento -> Herança -> Polimorfismo
+
+
+Encapsulamento: Ocultar partes independentes da implementação, permitindo construor
+                partes invisíveis ao mundo exterior.
+
+COMO Encapsular:
+
+Com uma interface ela é representada parecida com uma  classe, só que ela não tem atributos
+uma interface só tem métodos  
+
+        <<interface>>
+         Controlador
+
+    + ligar();
+    + desligar();
+    + abrirMenu();
+    + fecharMenu();
+    + maisVolume();
+    + menosVolume();
+    + ligarMudo();
+    + desligarMudo();
+    + play();
+    + pause();
+
+Geralmente todos os métodos são declarados publicos.
+
+Agora que minha <<interface>> está definida, basta eu definir minha classe.
+
+    classe ControleRemoto {
+
+        private volume;
+        private ligado;
+        private tocando;
+
+        // Métodos abistratos
+        + ligar();    
+        + desligar();
+        + abrirMenu();
+        + fecharMenu(); 
+        + maisVolume();
+        + menosVolume();
+        + ligarMudo();
+        + desligarMudo();
+        + play();
+        + pause();
+
+
+        // Métodos Especiais para os atributos privados.
+        - getVolume();
+        - setVolue();
+
+        - getLigado();
+        - setLigado();
+
+        - getTocando();
+        - setTocando();
+    }
+
+
+Quando se capsula é importante deixar todos os atributos da classe privados ou protegidos.
+A classe ControleRemoto vai incrementar a <<interface>> Controlador.
+dizendo que o ControleRemoto vai ter que ser um Controlador.
+
+PARA O EXECÍCIO todos os métodos Especiais seram privados.
+Isso porque o que vai tornar publico é somente a minha interface.
+----------------------------------------------------------------------------------------
+Definir interface:
+
+interface Controlador {
+    // Métodos abistratos
+
+    publico abstrato Metodo ligar();
+    publico abstrato Metodo desligar();
+    publico abstrato Metodo abrirMenu();
+    publico abstrato Metodo fecharMenu();
+    publico abstrato Metodo maisVolume();
+    publico abstrato Metodo menosVolume();
+    publico abstrato Metodo ligarMudo();
+    publico abstrato Metodo desligarMudo();
+    publico abstrato Metodo play();
+    publico abstrato Metodo pause();
+}
+
+publico é a visibilidade dele, ele vai ser visivel pelo lado de fora, obrigatório
+
+abstrato significa que não vou desenvolver o código ali dentro, eu vou definir ele em outro lugar
+quando eu incrementar minha interface.
+
+metodo é o metodo.
+
+E o nome do metodo.
+
+
+Todo mundo que for definido como um Controlador vai ter que implementar esses métodos.
+Eu não digo o que cada método vai fazer, eu simplesmente falo que vou precisar desses métodos.
+--------------------------------------------------------------------------------------------------
+CRIAÇÃO DA classe
+
+ classe ControleRemoto {
+
+        // atributos
+
+        private volume;
+        private ligado;
+        private tocando;
+
+        // Métodos abistratos
+        + ligar() {}
+        + desligar() {}
+        + abrirMenu() {}
+        + fecharMenu() {} 
+        + maisVolume() {}
+        + menosVolume() {}
+        + ligarMudo() {}
+        + desligarMudo() {}
+        + play() {}
+        + pause() {}
+
+
+        // Métodos Especiais para os atributos privados.
+
+        + function __Constructor() {
+            volume(50);
+            ligado(falso);
+            tocando(falso);
+        }
+
+
+        - getVolume() {
+            return $this->volume;
+        }
+        - setVolume($v) {
+            $this->volume = $v;
+        }
+
+        - getLigado() {
+            return $this->ligado;
+        }
+        - setLigado($l) {
+            $this->ligado = $l;
+        }
+
+        - getTocando() {
+            return $this->tocando;
+        }
+        - setTocando($t) {
+            $this->tocando = $t;
+        }
+    }
+
+
+
+
